@@ -20,9 +20,16 @@ stages:
         steps:
           - script: |
                 echo ls -lrt $(System.DefaultWorkingDirectory)
-      - job:
+      - job: Timepass
         dependsOn: GitCheckOutJob
         displayName: Timepass
         steps:
           - script: echo "Hello World"
+      - job: 
+        dependsOn: Timepass
+        displayName: TrivyFsScan
+        steps:
+          - script: |
+                trivy fs --exit-code 1 --severity HIGH,CRITICAL .
+                
 
