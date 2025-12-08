@@ -19,4 +19,9 @@ stages:
         displayName: GitCheckOutJob
         steps:
           - script: |
-                echo $(System.DefaultWorkingDirectory)
+                echo ls -lrt $(System.DefaultWorkingDirectory)
+      - job:
+        displayName: Timepass
+        steps:
+          - script: echo "Hello World"
+
