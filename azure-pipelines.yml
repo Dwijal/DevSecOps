@@ -21,6 +21,7 @@ stages:
           - script: |
                 echo ls -lrt $(System.DefaultWorkingDirectory)
       - job:
+        dependsOn: GitCheckOutJob
         displayName: Timepass
         steps:
           - script: echo "Hello World"
