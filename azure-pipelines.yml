@@ -25,13 +25,24 @@ stages:
         displayName: Timepass
         steps:
           - script: echo "Hello World"
-      - job: 
-        dependsOn: Timepass
-        displayName: TrivyFsScan
-        steps:
-          - script: |
-                trivy fs --exit-code 1 --severity HIGH,CRITICAL .
-                
-      # - job: ACRSCAN
+      # - job: 
+      #   dependsOn: Timepass
+      #   displayName: TrivyFsScan
       #   steps:
-      #     - 
+      #     - script: |
+      #           trivy fs --exit-code 1 --severity HIGH,CRITICAL .
+                
+      - job: ACRSCAN
+        dependsOn: GitCheckOutJob
+        steps:
+        - task: AzureCLI@2
+          inputs:
+            azureSubscription: 'DevSecOpsSCON'   # <-- your service connection name
+            scriptType: 'bash'
+            scriptLocation: 'inlineScript'
+            inlineScript: |
+              az acr login --name dwidevsecops 
+              # docker build -t myacr.azurecr.io/myapp:v1 .
+              # docker push myacr.azurecr.io/myapp:v1
+          
+ 
