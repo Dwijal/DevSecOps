@@ -35,7 +35,12 @@ stages:
       - job: ACRSCAN
         dependsOn: GitCheckOutJob
         steps:
+        - script: |
+            curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
+            az --version
+            displayName: "Install Azure CLI (Linux)"
         - task: AzureCLI@2
+          displayName: Doing Azure Login
           inputs:
             azureSubscription: 'DevSecOpsSCON'   # <-- your service connection name
             scriptType: 'bash'
