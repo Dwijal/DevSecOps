@@ -57,7 +57,8 @@ stages:
               az acr login --name dwidevsecops  
               # docker build -t myacr.azurecr.io/myapp:v1 .
               # docker push myacr.azurecr.io/myapp:v1
-              docker build -t dwidevsecops.azurecr.io/sampleimage:$(Build.BuildId)
+              cd "/home/dwiuser/myagent/_work/1/s/Project 01/java-maven"
+              docker build -t dwidevsecops.azurecr.io/sampleimage:$(Build.BuildId) .
       
           
  
