@@ -46,16 +46,16 @@ stages:
         - script: |
            cd "/home/dwiuser/myagent/_work/1/s/Project 01/java-maven"
             mvn package 
-        #   displayName: PackagePhase
-        # - task: AzureCLI@2
-        #   displayName: Doing Azure Login
-        #   inputs:
-        #     azureSubscription: 'DevSecOpsSCON'   # <-- your service connection name
-        #     scriptType: 'bash'
-        #     scriptLocation: 'inlineScript'
-        #     inlineScript: |
-        #       az acr login --name dwidevsecops 
-        #       # docker build -t myacr.azurecr.io/myapp:v1 .
-        #       # docker push myacr.azurecr.io/myapp:v1
+          displayName: PackagePhase
+        - task: AzureCLI@2
+          displayName: Doing Azure Login
+          inputs:
+            azureSubscription: 'DevSecOpsSCON'   # <-- your service connection name
+            scriptType: 'bash'
+            scriptLocation: 'inlineScript'
+            inlineScript: |
+              az acr login --name dwidevsecops 
+              # docker build -t myacr.azurecr.io/myapp:v1 .
+              # docker push myacr.azurecr.io/myapp:v1
           
  
