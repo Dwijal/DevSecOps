@@ -40,6 +40,7 @@ stages:
             az --version
           displayName: "Install Azure CLI (Linux)" 
         - script: |
+            cd /home/dwiuser/myagent/_work/1/s/Project 01/java-maven
             mvn package 
           displayName: PackagePhase
         - task: AzureCLI@2
