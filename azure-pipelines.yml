@@ -39,6 +39,9 @@ stages:
             curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
             az --version
           displayName: "Install Azure CLI (Linux)" 
+        - script: |
+            mvn package 
+          displayName: PackagePhase
         - task: AzureCLI@2
           displayName: Doing Azure Login
           inputs:
