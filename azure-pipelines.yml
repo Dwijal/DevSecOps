@@ -59,6 +59,7 @@ stages:
               # docker push myacr.azurecr.io/myapp:v1
               cd "/home/dwiuser/myagent/_work/1/s/Project 01/java-maven"
               docker build -t dwidevsecops.azurecr.io/sampleimage:$(Build.BuildId) .
+              docker push dwidevsecops.azurecr.io/sampleimage:$(Build.BuildId)
       
           
  
