@@ -57,5 +57,7 @@ stages:
               az acr login --name dwidevsecops  
               # docker build -t myacr.azurecr.io/myapp:v1 .
               # docker push myacr.azurecr.io/myapp:v1
+              docker build -t dwidevsecops.azurecr.io/sampleimage:$(Build.BuildId)
+      
           
  
